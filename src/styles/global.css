@@ -1,0 +1,168 @@
+:root {
+  --ink: #111312;
+  --ink-2: #171a19;
+  --ink-3: #212524;
+  --black: #0a0b0a;
+  --paper: #f3f1ec;
+  --paper-2: #e9e6df;
+  --white: #ffffff;
+
+  /* verde para textos/detalhes sobre fundo escuro */
+  --green: #4cb257;
+  /* verde mais fechado para botões preenchidos (contraste com texto branco) */
+  --green-btn: #2f9440;
+  --green-strong: #267d34;
+  /* vermelho da logo, usado só em detalhes pontuais */
+  --red: #d8362d;
+
+  --text: #171a19;
+  --muted: #5c6360;
+  --muted-on-dark: rgba(255, 255, 255, 0.66);
+  --line-dark: rgba(255, 255, 255, 0.1);
+  --line-light: rgba(17, 19, 18, 0.12);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --radius: 14px;
+  --radius-lg: 20px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --header-h: 88px;
+
+  font-family:
+    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) - 8px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- utilitários ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.section--light {
+  background: var(--paper);
+  color: var(--text);
+}
+
+.section--white {
+  background: #fbfaf7;
+  color: var(--text);
+}
+
+.section--dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.1vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.logo {
+  height: var(--logo-h, 56px);
+  width: auto;
+}
+
+.logo-fallback {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 960px) {
+  :root {
+    --header-h: 76px;
+  }
+}
