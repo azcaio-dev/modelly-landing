@@ -14,14 +14,8 @@ export const whatsappUrl = (
   message = 'Olá! Gostaria de solicitar um orçamento.',
 ) => `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`
 
-// Botão "Ver todos os produtos".
-// Provisório: abre a conversa com a mensagem pedindo o catálogo.
-// Quando o link oficial do catálogo funcionar, troque pelo link copiado do
-// app WhatsApp Business (Ferramentas comerciais > Catálogo > Compartilhar):
-// export const catalogUrl = 'COLE_O_LINK_AQUI'
-export const catalogUrl = whatsappUrl(
-  'Olá! Gostaria de ver o catálogo de produtos.',
-)
+// Catálogo do WhatsApp Business (botão "Ver todos os produtos").
+export const catalogUrl = 'https://wa.me/c/5581988882957'
 
 export const instagramUrl = `https://instagram.com/${SITE.instagram}`
 
@@ -31,17 +25,17 @@ export const IMAGES = {
   hero: '/images/hero.png',
   cta: '/images/cta.jpg',
   products: {
-    sofas: '/images/produtos/sofas.jpg',
-    pufes: '/images/produtos/pufes.jpg',
-    retrateis: '/images/produtos/retrateis.jpg',
-    reformas: '/images/produtos/reformas.jpg',
+    sofas: '/images/produtos/sofas.png',
+    pufes: '/images/produtos/puff.png',
+    retrateis: '/images/produtos/sofa-retratil.png',
+    reformas: '/images/produtos/reforma.png',
   },
-  before: '/images/antes-depois/antes.jpg',
-  after: '/images/antes-depois/depois.jpg',
-  portfolio: [1, 2, 3, 4, 5, 6].map(
-    (n) => `/images/portfolio/${String(n).padStart(2, '0')}.jpg`,
+  before: '/images/antes-depois/antes.png',
+  after: '/images/antes-depois/depois.png',
+  portfolio: [1, 2, 3, 4, 5, 6, 7].map(
+    (n) => `/images/portfolio/${String(n).padStart(2, '0')}.png`,
   ),
   testimonials: [1, 2, 3].map(
-    (n) => `/images/depoimentos/${String(n).padStart(2, '0')}.jpg`,
+    (n) => `/images/depoimentos/${String(n).padStart(2, '0')}.jpeg`,
   ),
 }

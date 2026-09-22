@@ -6,8 +6,8 @@ import './Testimonials.css'
 // Depoimento provisório: troque o texto e o autor quando tiver os reais.
 const TESTIMONIAL = {
   quote:
-    'Ficou simplesmente perfeito! O atendimento foi excelente e o resultado superou todas as minhas expectativas.',
-  author: 'Cliente satisfeito',
+    'Excelente atendimento,  qualidade do serviço perfeita, pontualidade na entrega. Amei meu sofá! Super indico',
+  author: 'Rachel Oliveira, Cliente Modelly.',
 }
 
 export default function Testimonials() {

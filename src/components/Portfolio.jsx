@@ -17,7 +17,10 @@ export default function Portfolio() {
 
         <ul className="portfolio__grid">
           {IMAGES.portfolio.map((src, i) => (
-            <li className={`portfolio__item portfolio__item--${i + 1}`} key={src}>
+            <li
+              className={`portfolio__item${i === 0 ? ' portfolio__item--wide' : ''}`}
+              key={src}
+            >
               <ImageSlot
                 src={src}
                 alt={`Trabalho de estofado realizado pela Modelly, foto ${i + 1}`}
