@@ -87,6 +87,34 @@
   animation: lightbox-img-in 0.3s var(--ease);
 }
 
+.lightbox__skeleton {
+  display: grid;
+  place-items: center;
+  width: min(60vw, 420px);
+  aspect-ratio: 1 / 1;
+  max-height: min(72vh, 760px);
+  border-radius: var(--radius);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.07) 1px, transparent 1.6px),
+    linear-gradient(150deg, #282c2b 0%, #191c1b 100%);
+  background-size: 26px 26px, cover;
+}
+
+.lightbox__spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: var(--green);
+  animation: lightbox-spin 0.8s linear infinite;
+}
+
+@keyframes lightbox-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes lightbox-img-in {
   from {
     opacity: 0;

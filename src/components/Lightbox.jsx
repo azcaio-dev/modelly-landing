@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import './Lightbox.css'
 
@@ -7,6 +7,15 @@ export default function Lightbox({ title, photos, index, onClose, onNav }) {
   const dialogRef = useRef(null)
   const total = photos.length
   const canNav = total > 1
+
+  // Enquanto uma foto ainda não carregou, mostra um quadrado com loading
+  // em vez da foto quebrada/apagada. Guarda o que já carregou para não
+  // repetir o efeito ao voltar para uma foto já vista.
+  const [loaded, setLoaded] = useState(() => new Set())
+  const currentSrc = photos[index]
+  const isLoaded = loaded.has(currentSrc)
+  const markLoaded = (src) =>
+    setLoaded((prev) => (prev.has(src) ? prev : new Set(prev).add(src)))
 
   // Esc fecha, setas navegam; trava o scroll da página enquanto está aberta.
   useEffect(() => {
@@ -79,10 +88,18 @@ export default function Lightbox({ title, photos, index, onClose, onNav }) {
             </button>
           )}
 
+          {!isLoaded && (
+            <div className="lightbox__skeleton" aria-hidden="true">
+              <span className="lightbox__spinner" />
+            </div>
+          )}
+
           <img
-            key={photos[index]}
+            key={currentSrc}
             className="lightbox__img"
-            src={photos[index]}
+            style={isLoaded ? undefined : { display: 'none' }}
+            src={currentSrc}
+            onLoad={() => markLoaded(currentSrc)}
             alt={`${title} — foto ${index + 1} de ${total}`}
           />
 
