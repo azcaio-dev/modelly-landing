@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './styles/global.css'
 
 // Ao recarregar (F5), a página volta ao topo em vez de restaurar a rolagem.
-// Links diretos com âncora (ex.: /#portfolio) continuam funcionando.
+// Links diretos com âncora (ex.: /#servicos) continuam funcionando.
 if ('scrollRestoration' in window.history) {
   window.history.scrollRestoration = 'manual'
 }

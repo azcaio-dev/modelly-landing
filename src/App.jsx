@@ -4,7 +4,6 @@ import Benefits from './components/Benefits.jsx'
 import Products from './components/Products.jsx'
 import BeforeAfter from './components/BeforeAfter.jsx'
 import WhyChoose from './components/WhyChoose.jsx'
-import Portfolio from './components/Portfolio.jsx'
 import Testimonials from './components/Testimonials.jsx'
 import FinalCTA from './components/FinalCTA.jsx'
 import Footer from './components/Footer.jsx'
@@ -19,7 +18,6 @@ export default function App() {
         <Products />
         <BeforeAfter />
         <WhyChoose />
-        <Portfolio />
         <Testimonials />
         <FinalCTA />
       </main>

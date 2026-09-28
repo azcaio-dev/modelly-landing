@@ -15,7 +15,7 @@ export const whatsappUrl = (
 ) => `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`
 
 // Catálogo do WhatsApp Business (botão "Ver todos os produtos").
-export const catalogUrl = 'https://wa.me/c/5581988882957'
+export const catalogUrl = 'https://wa.me/5581988882957'
 
 export const instagramUrl = `https://instagram.com/${SITE.instagram}`
 

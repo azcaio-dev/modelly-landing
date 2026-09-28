@@ -41,7 +41,7 @@ export default function Hero() {
             </Button>
             <Button
               variant="outline"
-              href="#portfolio"
+              href="#servicos"
               icon={<Play size={13} fill="currentColor" />}
             >
               Conheça nosso trabalho

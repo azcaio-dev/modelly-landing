@@ -1,14 +1,9 @@
-import { useCallback, useState } from 'react'
 import './ImageSlot.css'
 
 /**
- * Espaço de imagem com placeholder automático.
- *
- * - Enquanto o arquivo em `src` não existir (ou falhar), aparece um bloco
- *   neutro com trama de capitonê e um ícone discreto da categoria.
- * - Ao colocar o arquivo no caminho correto, a foto aparece sozinha por cima.
- *
- * tone: 'dark' | 'stone' | 'cta'
+ * Componente para exibir imagens com um placeholder de fundo.
+ * A imagem fica visível assim que o navegador a renderiza, sem depender
+ * de uma classe de estado que possa manter a foto invisível.
  */
 export default function ImageSlot({
   src,
@@ -19,29 +14,23 @@ export default function ImageSlot({
   eager = false,
   className = '',
 }) {
-  const [status, setStatus] = useState('loading') // loading | loaded | error
-
-  // Cobre imagens que já estavam em cache antes do React anexar o onLoad.
-  const imgRef = useCallback((img) => {
-    if (img && img.complete && img.naturalWidth > 0) setStatus('loaded')
-  }, [])
-
   return (
-    <div className={`slot slot--${tone} ${className}`} data-status={status}>
+    <div className={`slot slot--${tone} ${className}`}>
       <div className="slot__placeholder" aria-hidden="true">
         {Icon && <Icon strokeWidth={1.1} />}
       </div>
-      {src && status !== 'error' && (
+
+      {src && (
         <img
-          ref={imgRef}
           className="slot__img"
           src={src}
           alt={alt}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
-          style={position ? { objectPosition: position } : undefined}
-          onLoad={() => setStatus('loaded')}
-          onError={() => setStatus('error')}
+          style={{
+            ...(position ? { objectPosition: position } : {}),
+            opacity: 1,
+          }}
         />
       )}
     </div>

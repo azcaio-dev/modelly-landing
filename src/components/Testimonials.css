@@ -24,10 +24,59 @@
   text-wrap: pretty;
 }
 
+.testimonials__stars {
+  display: flex;
+  gap: 0.15rem;
+  margin-top: 1.2rem;
+  color: var(--green);
+}
+
 .testimonials__quote figcaption {
+  display: flex;
+  flex-direction: column;
   margin-top: 1.4rem;
   font-size: 0.82rem;
   color: var(--muted-on-dark);
+}
+
+.testimonials__quote figcaption strong {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.testimonials__quote figcaption span {
+  margin-top: 0.15rem;
+}
+
+.testimonials__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #fff;
+  transition:
+    border-color 0.25s var(--ease),
+    background-color 0.25s var(--ease);
+}
+
+.testimonials__badge:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.testimonials__badge-stars {
+  display: flex;
+  gap: 0.1rem;
+  color: var(--green);
+}
+
+.testimonials__badge strong {
+  color: #fff;
 }
 
 .testimonials__photos {
